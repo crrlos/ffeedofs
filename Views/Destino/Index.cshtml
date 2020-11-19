@@ -1,0 +1,35 @@
+@model List<DestinoDTO>
+
+<a asp-controller="Destino" asp-action="Register" class="btn btn-primary">Agregar</a>
+
+<table class="table mt-5">
+   <thead>
+       <tr>
+           <th>
+               Código
+           </th>
+           <th>
+               Nombre
+           </th>
+           
+           <th>
+               Opciones
+           </th>
+       </tr>
+   </thead>
+   <tbody>
+       @foreach (var cliente in Model)
+       {
+           <tr>
+               <td>@cliente.Codigo</td>
+               <td>@cliente.Nombre</td>
+               
+               <td>
+                   @Html.ActionLink("editar","Edit","Destino",new {id = cliente.Id})
+                   @Html.ActionLink("eliminar","Delete","Destino",new {id = cliente.Id})
+                  
+                   </td>
+           </tr>
+       }
+   </tbody>
+</table>

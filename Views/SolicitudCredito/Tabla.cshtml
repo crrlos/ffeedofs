@@ -1,0 +1,34 @@
+@model List<MVC.Servicios.Registro>
+
+<table class="table">
+    <tr>
+        <th>
+            Periodo
+        </th>
+        
+        <th>
+            Cuota
+        </th>
+        
+        <th>
+            Interes
+        </th>
+        <th>
+            Amortizacion
+        </th>
+        <th>
+            Saldo
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Periodo</td>
+            <td>@item.Cuota</td>
+            <td>@item.Interes</td>
+            <td>@item.Amortizacion</td>
+            <td>@item.Saldo</td>
+        </tr>
+    }
+</table>
+

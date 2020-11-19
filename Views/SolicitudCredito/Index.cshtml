@@ -1,0 +1,36 @@
+@model List<SolicitudCreditoDTO>
+
+<a asp-controller="SolicitudCredito" asp-action="Register" class="btn btn-primary">Agregar</a>
+
+<table class="table mt-5">
+   <thead>
+       <tr>
+           <th>
+               Id
+           </th>
+           <th>
+               Cliente
+           </th>
+           
+           <th>
+               Opciones
+           </th>
+       </tr>
+   </thead>
+   <tbody>
+       @foreach (var cliente in Model)
+       {
+           <tr>
+               <td>@cliente.Id</td>
+               <td>@cliente.Cliente</td>
+               
+               <td>
+                   @Html.ActionLink("editar","Edit","SolicitudCredito",new {id = cliente.Id})
+                   @Html.ActionLink("eliminar","Delete","SolicitudCredito",new {id = cliente.Id})
+                   @Html.ActionLink("ver tabla","Tabla","SolicitudCredito",new {id = cliente.Id})
+                  
+                   </td>
+           </tr>
+       }
+   </tbody>
+</table>

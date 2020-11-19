@@ -1,0 +1,52 @@
+@model SolicitudCreditoViewModel
+
+<form style="width: 50%;" asp-controller="SolicitudCredito" asp-action="Register" method="POST">
+
+    <div class="form-group">
+       @Html.LabelFor(m => m.ClienteId)
+       @Html.DropDownListFor(m => m.ClienteId,new SelectList(Model.Clientes,"Id","Nombre"),"Seleccione", new {@class = "form-control"})
+       @Html.ValidationMessageFor(m => m.ClienteId,null, new {@class ="text-danger"})
+    </div>
+    <div class="form-group">
+       @Html.LabelFor(m => m.DestinoId)
+       @Html.DropDownListFor(m => m.DestinoId,new SelectList(Model.Destinos,"Id","Nombre"),"Seleccione", new {@class = "form-control"})
+       @Html.ValidationMessageFor(m => m.DestinoId,null, new {@class ="text-danger"})
+    </div>
+
+     <div class="form-group">
+       @Html.LabelFor(m => m.TipoCreditoId)
+       @Html.DropDownListFor(m => m.TipoCreditoId,new SelectList(Model.TiposCreditos,"Id","Nombre"),"Seleccione", new {@class = "form-control"})
+       @Html.ValidationMessageFor(m => m.TipoCreditoId,null, new {@class ="text-danger"})
+    </div>
+
+     <div class="form-group">
+       @Html.LabelFor(m => m.Ingresos)
+       @Html.TextBoxFor(m => m.Ingresos, new {@class="form-control"})
+       @Html.ValidationMessageFor(m => m.Ingresos,null, new {@class ="text-danger"})
+    </div>
+     <div class="form-group">
+       @Html.LabelFor(m => m.Egresos)
+       @Html.TextBoxFor(m => m.Egresos, new {@class="form-control"})
+       @Html.ValidationMessageFor(m => m.Egresos,null, new {@class ="text-danger"})
+    </div>
+     <div class="form-group">
+       @Html.LabelFor(m => m.MontoSolicitado)
+       @Html.TextBoxFor(m => m.MontoSolicitado, new {@class="form-control"})
+       @Html.ValidationMessageFor(m => m.MontoSolicitado,null, new {@class ="text-danger"})
+    </div>
+     <div class="form-group">
+       @Html.LabelFor(m => m.Plazo)
+       @Html.TextBoxFor(m => m.Plazo, new {@class="form-control"})
+       @Html.ValidationMessageFor(m => m.Plazo,null, new {@class ="text-danger"})
+    </div>
+ <div class="form-group">
+       @Html.LabelFor(m => m.Tasa)
+       @Html.TextBoxFor(m => m.Tasa, new {@class="form-control"})
+       @Html.ValidationMessageFor(m => m.Tasa,null, new {@class ="text-danger"})
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a class="btn btn-secondary" asp-controller="SolicitudCredito" asp-action="Index">Cancelar</a>
+    
+
+</form>
